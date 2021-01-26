@@ -4,3 +4,6 @@ const submit = document.getElementById("submit");
 
 
 
+brand.addEventListener("keyup",event=>{
+    
+})

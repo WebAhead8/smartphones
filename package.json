@@ -1,0 +1,24 @@
+{
+  "name": "smartphones",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js", 
+  "scripts": {
+    "start":"node ./src/server.js",
+    "dev":"nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebAhead8/smartphones.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebAhead8/smartphones/issues"
+  },
+  "homepage": "https://github.com/WebAhead8/smartphones#readme",
+  "dependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

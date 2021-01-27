@@ -15,30 +15,47 @@ const filePath = path.join(__dirname, '..', 'data', 'data.json')
 //   });
 //   return a
 // }
-function getAllBrands () {
-    try {
-        const data = fs.readFileSync(filePath, { encoding: 'utf-8' })
-        return {error: false, data: brandFilter(JSON.parse(data))}
-    } catch (error) {
-        return {error: true,message: error.message}
-    }
-}
+function getAllBrands (brandQuery, modelQuery) {
+  try {
+    const file = fs.readFileSync(filePath, { encoding: 'utf-8' })
+    const data = JSON.parse(file)
+    console.log(1)
+    let newArr = data.results
+      .map(smartphone => ({ brand: smartphone.Brand, model: smartphone.Model }))
+      .filter(({ brand, model }) => {
+        if (brandQuery && modelQuery) {
+          return (
+            brand &&
+            brand.toLowerCase().startsWith(brandQuery.toLowerCase()) &&
+            model.toLowerCase().indexOf(modelQuery.toLowerCase()) !== -1
+          )
+        } else {
+          return (
+            brand && brand.toLowerCase().startsWith(brandQuery.toLowerCase())
+          )
+        }
+      })
 
-function brandFilter (data) {
-  let arr = []
-  const { results } = data
-  let nonDuplicated = []
-  for (let index of results) {
-    //console.log(index)
-    arr.push(index.Brand)
+    return { error: false, data: newArr }
+  } catch (error) {
+    return { error: true, message: error.message }
   }
-
-  for (i = 0; i < arr.length; i++) {
-    if (nonDuplicated.indexOf(arr[i]) === -1) {
-      nonDuplicated.push(arr[i])
-    }
-  }
-
-  return nonDuplicated.sort()
 }
+// function brandFilter (data) {
+//   let arr = []
+//   const { results } = data
+//   let nonDuplicated = []
+//   for (let index of results) {
+//     //console.log(index)
+//     arr.push(index.Brand)
+//   }
+
+//   for (i = 0; i < arr.length; i++) {
+//     if (nonDuplicated.indexOf(arr[i]) === -1) {
+//       nonDuplicated.push(arr[i])
+//     }
+//   }
+
+//   return nonDuplicated.sort()
+// }
 module.exports = getAllBrands

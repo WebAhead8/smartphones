@@ -39,6 +39,6 @@ function brandFilter (data) {
     }
   }
 
-  return nonDuplicated
+  return nonDuplicated.sort()
 }
 module.exports = getAllBrands

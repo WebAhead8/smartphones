@@ -14,7 +14,7 @@ function brandHandlers (req, res) {
     res.writeHead(500, { 'content-type': 'text/html' })
     res.end('<h1>server error</h1>')
   } else {
-    res.writeHead(200, { 'content-type': 'apllication/json' })
+    res.writeHead(200, { 'content-type': 'application/json' })
     res.end(JSON.stringify(getAllBrands()))
   }
 }

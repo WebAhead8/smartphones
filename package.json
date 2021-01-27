@@ -20,5 +20,6 @@
   "homepage": "https://github.com/WebAhead8/smartphones#readme",
   "dependencies": {
     "nodemon": "^2.0.7"
-  }
+  },
+  "devDependencies": {}
 }

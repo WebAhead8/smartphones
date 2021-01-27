@@ -12,7 +12,7 @@ const types = {
 }
 
 function publicHandler(req, res) {
-    filePath = path.join(__dirname, "..", req.url);
+    const filePath = path.join(__dirname, "..", req.url);
     const URL = req.url;
     const extention = URL.split(".")[1];
     const type = types[extention];

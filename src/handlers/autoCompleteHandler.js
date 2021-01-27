@@ -1,16 +1,11 @@
-function autoComplete (req, res) {
-  if (req.method === 'POST') {
-      
-    let body = ''
-
-    req.on('data', chunk => {
-      body += chunk.toString()
-      
-    })
-    req.on('end', () => {
-      console.log("body",body)
-    })
-  }
+function autoComplete(req, res) {
+  let body = "";
+  req.on("data", (chunk) => {
+    body += chunk.toString();
+  });
+  req.on("end", () => {
+    console.log("body", JSON.parse(body).word);
+  });
 }
 
-module.exports = autoComplete
+module.exports = autoComplete;

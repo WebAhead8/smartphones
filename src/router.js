@@ -1,10 +1,9 @@
 const homeHandler = require('./handlers/home')
 const publicHandler = require('./handlers/public')
 const missingHandler = require("./handlers/missing");
-
-
+const brandHandlers = require("./handlers/brandHandlers")
 function router (req, res) {
-
+    
   if (req.url === '/') {
     homeHandler(req, res)
   } else if (req.url.includes('public')) {

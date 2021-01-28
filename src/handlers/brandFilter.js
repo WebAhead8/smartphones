@@ -19,7 +19,6 @@ function getAllBrands (brandQuery, modelQuery) {
   try {
     const file = fs.readFileSync(filePath, { encoding: 'utf-8' })
     const data = JSON.parse(file)
-    console.log(1)
     let newArr = data.results
       .map(smartphone => ({ brand: smartphone.Brand, model: smartphone.Model }))
       .filter(({ brand, model }) => {
